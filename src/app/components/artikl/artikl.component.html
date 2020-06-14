@@ -1,0 +1,57 @@
+<!-- ARTIKL TABLE-->
+<h1>Artikli</h1>
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  <!-- ID Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+  </ng-container>
+
+  <!-- NAZIV Column -->
+  <ng-container matColumnDef="naziv">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Naziv</th>
+    <td mat-cell *matCellDef="let element">{{ element.naziv }}</td>
+  </ng-container>
+
+  <!-- CENA Column -->
+  <ng-container matColumnDef="cena">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Cena</th>
+    <td mat-cell *matCellDef="let element">{{ element.cena }}</td>
+  </ng-container>
+
+  <!-- ALKOHOLNO Column -->
+  <ng-container matColumnDef="alkoholno">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Alkoholno</th>
+    <td
+      mat-cell
+      *matCellDef="let element"
+      [style.color]="element.alkoholno == true ? 'green' : 'red'"
+    >
+      {{ element.alkoholno ? "Da" : "Ne" }}
+    </td>
+  </ng-container>
+
+  <!-- actions -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>
+      <button mat-icon-button color="primary" (click)="openDialog(1, null)">
+        <mat-icon>add</mat-icon>
+      </button>
+    </th>
+
+    <td mat-cell *matCellDef="let row; let i = index">
+      <button mat-icon-button color="primary" (click)="openDialog(2, row)">
+        <mat-icon aria-label="Edit">edit</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+<mat-paginator
+  [length]="100"
+  [pageSize]="5"
+  [pageSizeOptions]="[5, 10, 25, 100]"
+>
+</mat-paginator>

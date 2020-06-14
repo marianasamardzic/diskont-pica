@@ -1,0 +1,18 @@
+<div class="example-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Naziv</mat-label>
+    <input matInput name="email" [(ngModel)]="data.naziv" [disabled]="flag==3" required>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Cena</mat-label>
+    <input matInput name="sifra" [(ngModel)]="data.cena" [disabled]="flag==3" type="number">
+  </mat-form-field>
+  <br>
+    <mat-checkbox  name="ime" [(ngModel)]="data.alkoholno">Alkoholno</mat-checkbox>
+  <br>
+</div>
+<mat-dialog-actions align="center">
+	<button mat-raised-button color="primary" (click)="onConfirmClick()" tabindex="1" >U redu</button>
+	<button mat-raised-button mat-dialog-close tabindex="-1">Odustani</button>
+</mat-dialog-actions>

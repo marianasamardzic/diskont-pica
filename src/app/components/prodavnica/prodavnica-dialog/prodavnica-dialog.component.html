@@ -1,0 +1,36 @@
+<div class="example-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Adresa</mat-label>
+    <input matInput name="email" [(ngModel)]="data.adresa" [disabled]="flag==3" required>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Grad</mat-label>
+    <input matInput name="grad" [(ngModel)]="data.grad" [disabled]="flag==3">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Postanski broj</mat-label>
+    <input matInput name="postanski_broj" [(ngModel)]="data.postanski_broj" [disabled]="flag==3" required>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Telefon</mat-label>
+    <input matInput name="telefon" [(ngModel)]="data.telefon" [disabled]="flag==3">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Menadzer</mat-label>
+    <mat-select
+    [(ngModel)]="selectedMenadzer"
+    >
+      <mat-option *ngFor="let menadzer of menadzeri" [value]="menadzer">
+        {{ menadzer.korisnik.email}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<mat-dialog-actions align="center">
+	<button mat-raised-button color="primary" (click)="onConfirmClick()" tabindex="1" >U redu</button>
+	<button mat-raised-button mat-dialog-close tabindex="-1">Odustani</button>
+</mat-dialog-actions>

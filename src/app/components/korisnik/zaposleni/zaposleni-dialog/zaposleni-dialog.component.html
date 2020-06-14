@@ -1,0 +1,41 @@
+<div class="example-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput name="email" [(ngModel)]="data.korisnik.email" [disabled]="flag==3" required>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Sifra</mat-label>
+    <input matInput name="sifra" [(ngModel)]="data.korisnik.sifra" [disabled]="flag==3">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Ime</mat-label>
+    <input matInput name="ime" [(ngModel)]="data.korisnik.ime" [disabled]="flag==3">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Prezime</mat-label>
+    <input matInput name="prezime" [(ngModel)]="data.korisnik.prezime" [disabled]="flag==3">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Jmbg</mat-label>
+    <input matInput name="jmbg" [(ngModel)]="data.korisnik.jmbg" [disabled]="flag==3">
+  </mat-form-field>
+  <br>
+ <mat-form-field appearance="fill">
+    <mat-label>Telefon</mat-label>
+    <input matInput name="telefon" [(ngModel)]="data.korisnik.telefon" [disabled]="flag==3">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Prodavnica</mat-label>
+    <input matInput name="prodavnica" [(ngModel)]="data.prodavnica_id" [disabled]="flag==3">
+  </mat-form-field>
+  <br>
+</div>
+<mat-dialog-actions align="center">
+	<button mat-raised-button color="primary" (click)="onConfirmClick()" tabindex="1" >U redu</button>
+	<button mat-raised-button mat-dialog-close tabindex="-1">Odustani</button>
+</mat-dialog-actions>

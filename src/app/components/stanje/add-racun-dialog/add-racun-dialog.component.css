@@ -1,0 +1,6 @@
+.mat-label {
+  margin-right: 1100;
+}
+.example-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}

@@ -1,0 +1,22 @@
+<mat-form-field>
+  <mat-label>Dobavljac</mat-label>
+  <mat-select
+    [(ngModel)]="selektovaniDobavljac"
+  >
+    <mat-option *ngFor="let dobavljac of dobavljaci" [value]="dobavljac">
+      {{ dobavljac.adresa}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<div *ngFor="let stavka of stavke">
+  <form class="example-form">
+    <mat-label style="margin-right: 5px;">{{stavka.artikl.naziv}}</mat-label>
+    <mat-form-field class="example-full-width">
+      <input  matInput placeholder="Kolicina" type="number" name="something" [(ngModel)]="stavka.kolicina" >
+    </mat-form-field>
+  </form>
+</div>
+<mat-dialog-actions align="center">
+	<button mat-raised-button color="primary" (click)="onConfirmClick()" tabindex="1">U redu</button>
+	<button mat-raised-button mat-dialog-close tabindex="-1">Odustani</button>
+</mat-dialog-actions>

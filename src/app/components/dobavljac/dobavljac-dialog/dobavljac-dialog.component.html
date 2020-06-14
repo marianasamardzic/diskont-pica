@@ -1,0 +1,21 @@
+<div class="example-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput name="email" [(ngModel)]="data.email" [disabled]="flag==3" required>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Adresa</mat-label>
+    <input matInput name="adresa" [(ngModel)]="data.adresa" [disabled]="flag==3">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Telefon</mat-label>
+    <input matInput name="telefon" [(ngModel)]="data.telefon" [disabled]="flag==3">
+  </mat-form-field>
+  <br>
+</div>
+<mat-dialog-actions align="center">
+	<button mat-raised-button color="primary" (click)="onConfirmClick()" tabindex="1" >U redu</button>
+	<button mat-raised-button mat-dialog-close tabindex="-1">Odustani</button>
+</mat-dialog-actions>

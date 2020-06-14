@@ -1,0 +1,72 @@
+<!-- ADMINISTRATOR TABLE-->
+<h1>Menadzeri</h1>
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  <!-- ID Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+    <td mat-cell *matCellDef="let element">{{ element.korisnik.id }}</td>
+  </ng-container>
+
+  <!-- EMAIL Column -->
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+    <td mat-cell *matCellDef="let element">{{ element.korisnik.email }}</td>
+  </ng-container>
+
+  <!-- SIFRA Column -->
+  <ng-container matColumnDef="sifra">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Sifra</th>
+    <td mat-cell *matCellDef="let element">{{ element.korisnik.sifra }}</td>
+  </ng-container>
+
+  <!-- IME Column -->
+  <ng-container matColumnDef="ime">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Ime</th>
+    <td mat-cell *matCellDef="let element">{{ element.korisnik.ime }}</td>
+  </ng-container>
+
+  <!-- PREZIME Column -->
+  <ng-container matColumnDef="prezime">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Prezime</th>
+    <td mat-cell *matCellDef="let element">{{ element.korisnik.prezime }}</td>
+  </ng-container>
+
+  <!-- JMBG Column -->
+  <ng-container matColumnDef="jmbg">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>JMBG</th>
+    <td mat-cell *matCellDef="let element">{{ element.korisnik.jmbg }}</td>
+  </ng-container>
+
+  <!-- TELEFON Column -->
+  <ng-container matColumnDef="telefon">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Telefon</th>
+    <td mat-cell *matCellDef="let element">{{ element.korisnik.telefon }}</td>
+  </ng-container>
+
+  <!-- actions -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>
+      <button mat-icon-button color="primary" (click) = "openDialog(1,null)">
+        <mat-icon>add</mat-icon>
+      </button>
+    </th>
+
+    <td mat-cell *matCellDef="let row; let i = index">
+      <button mat-icon-button color="primary" (click) = "openDialog(2,row)">
+        <mat-icon aria-label="Edit">edit</mat-icon>
+      </button>
+      <button mat-icon-button color="primary" (click) = "openDialog(3,row)">
+        <mat-icon aria-label="Delete">delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+<mat-paginator
+  [length]="100"
+  [pageSize]="5"
+  [pageSizeOptions]="[5, 10, 25, 100]"
+>
+</mat-paginator>

@@ -1,0 +1,57 @@
+<h1>Porudzbine</h1>
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="prodavnica_id">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Prodavnica</th>
+    <td mat-cell *matCellDef="let element">{{ element.prodavnica_id }}</td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="isporuceno">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Isporuceno</th>
+    <td mat-cell *matCellDef="let element">
+      <mat-checkbox [(ngModel)]="element.isporuceno" (change)="checkboxClicked(element)" [disabled]="element.isporuceno"></mat-checkbox>
+    </td>
+  </ng-container>
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="dobavljac">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Dobavljac</th>
+    <td mat-cell *matCellDef="let element">{{ element.dobavljac.adresa }}</td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="datum_slanja">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Datum slanja</th>
+    <td mat-cell *matCellDef="let element">{{ element.datum_slanja }}</td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="datum_dospeca">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Datum dospeca</th>
+    <td mat-cell *matCellDef="let element">{{ element.datum_dospeca }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr
+    mat-row
+    *matRowDef="let row; columns: displayedColumns"
+    (click)="selectRow(row)"
+  ></tr>
+</table>
+<mat-paginator
+  [length]="100"
+  [pageSize]="5"
+  [pageSizeOptions]="[5, 10, 25, 100]"
+>
+</mat-paginator>
+
+<app-stavka-porudzbine
+  *ngIf="selektovanaPorudzbina"
+  [selektovanaPorudzbina]="selektovanaPorudzbina"
+></app-stavka-porudzbine>
